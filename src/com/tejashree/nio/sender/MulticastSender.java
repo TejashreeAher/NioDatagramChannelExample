@@ -28,7 +28,7 @@ public class MulticastSender {
         InetAddress group = InetAddress.getByName(GROUP_ADDRESS);
         DatagramChannel channel = DatagramChannel.open(StandardProtocolFamily.INET)
 			    .setOption(StandardSocketOptions.SO_REUSEADDR, true)
-			    .bind(new InetSocketAddress(PORT))
+			    .bind(new InetSocketAddress(9999)) //this is sender's local port
 			    .setOption(StandardSocketOptions.IP_MULTICAST_IF, ni);
 			
            channel.setOption(StandardSocketOptions.SO_REUSEADDR, true);
@@ -40,7 +40,7 @@ public class MulticastSender {
             buf.clear();
             buf.put(newData.getBytes());
             buf.flip();
-            channel.send(buf, new InetSocketAddress(group, PORT));
+            channel.send(buf, new InetSocketAddress(group, PORT)); //this port should be the same on which receiver is listening
         } catch (IOException e) {
             System.out.println("IOException while sending message : " + e);
         }
