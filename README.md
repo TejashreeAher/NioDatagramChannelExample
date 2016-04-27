@@ -7,7 +7,7 @@ MultiThreadReceiver have multiple threads that listen on the datagram channel. T
 
 Run receivers first (like a normal java file) and then sender to check the behavior.
 
- (Enabled lolcommit: Every commit will be captured with a picture")
+(Enabled lolcommit: Every commit will be captured with a picture")
 
 Multicast Sender/Receiver :
 MulticastSender.java sends message onto the channel thath joins a group. MulticastReceiver.java joins the same group to receive messages. MulticastReceiver2.java can be run on another host in the network which joins the same group and it can be seen that both the receivers receives messages sent by the sender
